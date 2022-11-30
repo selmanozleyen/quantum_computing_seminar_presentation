@@ -44,7 +44,7 @@ School of Computation, Information and Technology\\}
   \begin{enumerate}
     \item Let the index of the desired element be $w$.
     % w as in winner index
-    \item Let our database be a function 
+    \item Let $f$ be a function 
     $f:[N-1]\rightarrow\{0,1\}$ s.t. $f(w)=1$ and $f(x)=0$ for all other elements.
     \item We have $f$ but we don't have $w$, so we want to find it.
   \end{enumerate}
@@ -101,14 +101,14 @@ School of Computation, Information and Technology\\}
 \begin{frame}
   \frametitle{Quantum Oracles}
   In general, such quantum oracles for search algorithms are usually written as the following.
-  \begin{enumerate}
+  \begin{itemize}
     \item Let $f(x)$ be a classical function s.t. $f(x)=1$ if $x$ is what we search for, else $f(x)=0$.
-    \item There can be more than one $x$ s.t. $f(x)=1$ in general.
     \item Usually, the effect is written as $U_f|x\rangle = (-1)^{f(x)}|x\rangle$.
+    \item There can be more than one $x$ s.t. $f(x)=1$ in general.
     \item We focus on the case when there is only one solution.
     \item But the algorithm also works for multiple solutions!  
     %  as in Grover's work.
-  \end{enumerate}
+  \end{itemize}
   In short, Quantum Oracles flip the phase of the solution state.
 % CITE BOOK
 \end{frame}
@@ -136,12 +136,12 @@ School of Computation, Information and Technology\\}
   \frametitle{Grover's Oracle in Practice: Wrap Up}
 
 But in general we should know that 
-\begin{enumerate}[.]
+\begin{itemize}
   \item It is easy to convert a problem into an oracle form.
   \item Because we don't need to find the solution, verifying it is usually enough \footcite[]{Qiskit}.
   \item For example, we can create a circuit to verify a Sudoku solution.
   \item Which is much easier than finding a Sudoku solution.
-\end{enumerate}
+\end{itemize}
 % cite notebook
 \end{frame}
 %%%%%%
@@ -340,11 +340,11 @@ But in general we should know that
 %%%%%%
 \begin{frame}
   \frametitle{Amplitude Amplification: Applying Iterations}
-  $U_sU_w\boldsymbol{\ket{s}}$ has magnitude of $\sin{(3\theta/2)}$ on $\boldsymbol{\ket{w}}$.
-  \begin{enumerate}[-]
-    \item After $r$ iterations.
-    \item $(U_sU_w)^r\boldsymbol{\ket{s}}$ will have a magnitude of $\sin{\left(\theta(r+1/2)\right)}$ on $\boldsymbol{\ket{w}}$.
-  \end{enumerate}
+  
+  \begin{itemize}
+    \item $U_sU_w\boldsymbol{\ket{s}}$ has magnitude of $\sin{(3\theta/2)}$ on $\boldsymbol{\ket{w}}$.
+    \item After $r$ iterations: $(U_sU_w)^r\boldsymbol{\ket{s}}$ will have a magnitude of $\sin{\left(\theta(r+1/2)\right)}$ on $\boldsymbol{\ket{w}}$.
+  \end{itemize}
 \end{frame}
 %%%%%%
 
@@ -352,12 +352,12 @@ But in general we should know that
 \begin{frame}
   \frametitle{Amplitude Amplification: Finding Number of Iterations}
   Following from the previous results, we conclude:
-  \begin{enumerate}[-]
+  \begin{itemize}
     \item The probability of measuring the solution is $\sin{\left(\theta\left(r+1/2\right)\right)}^2$.
     \item By our definition of $\theta$, we know $\theta = 2 \arcsin{\frac{1}{\sqrt{N}}}$.
     \item We use this to maximize $\sin{\left(\theta\left(r+1/2\right)\right)}^2$ w.r.t $r$.
     \item This is maximized when we set $r \approx \pi\sqrt{N}/4$.
-  \end{enumerate}
+  \end{itemize}
   So we need $O(\sqrt{N})$ iterations to measure the solution with high probability.
   One can also show that the error is $O(1/N)$\footcite[]{Grover_1997}.
 \end{frame}
@@ -392,11 +392,11 @@ But in general we should know that
 \begin{frame}
   \frametitle{Summary}
   We will see how this algorithm can be done in a quantum circuit. But to summarize until now:
-  \begin{enumerate}[-]
+  \begin{itemize}
     \item It is conceptually easy to create a quantum oracle from classical circuits.
     \item Quantum computers can find an entry from an unsorted database in $O(\sqrt{N})$ iterations.
     \item While classical computers need $O(N)$.
-  \end{enumerate}
+  \end{itemize}
 \end{frame}
 %%%%%%
 
